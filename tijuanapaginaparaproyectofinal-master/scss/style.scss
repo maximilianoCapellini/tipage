@@ -1,0 +1,470 @@
+/*estilos home*/
+*{
+    padding: 3px;
+    margin: 5px;
+    box-sizing: border-box;
+}
+@import "base/variables";
+@import"base/mixins";
+@import"base/extend";
+@import"base/mapas";
+
+body{
+    .headerHome{
+        display: grid;
+        grid-template-columns:7fr;
+        grid-template-rows:2.5fr;
+        grid-template-areas:" headerHome ";
+        background-color: $colorTerciario;
+        grid-area: headerhome;
+        @include flex-colum;
+        flex-wrap: wrap;
+        .piePagina{
+            background-color:$colorPrincipal;
+            @include  leter-type;
+            @include decoration-text;
+        }
+        h1{
+            @include  leter-type;
+            font-weight: bold;
+            font-size: 8vw;
+            border: 10px solid rgb(6, 5, 5);
+            justify-content: center;
+        }
+        p{
+            text-align: center;
+        }
+        .navEventos{
+            font-weight: bold;
+            background-color:rgb(231, 158, 24);
+        }
+    }
+    .seccionCentral{
+        display: grid;
+        grid-template-columns:3.5fr 3.5fr;
+        grid-template-rows:3.5fr  ;
+        grid-template-areas:" divSeccion sectionRutini "; 
+        background-color:$colorSecundario;
+        grid-area: seccionCentral ;
+        font-weight: bold;
+        h2{
+            @include leter-type;
+        }
+        p{
+            @include leter-type;
+        }
+        section{
+            display: flex;
+            background-color:$colorPrincipal;
+        }
+        .imagenRutini{
+            animation-name: imagenRutini;
+            animation-iteration-count: infinite;
+            animation-duration: 5s;
+        }
+        @keyframes imagenRutini{
+            from{
+                transform: scale(0);
+            }
+            to{
+                transform: scale(0.5);
+            }
+        }
+        .sectionRutini{
+            grid-area: sectionRutini;
+            align-items: center;
+            justify-content: center;
+            display: block;
+        }
+    }
+    .footerHome{
+        display: grid;
+        grid-template-columns:7fr;
+        grid-template-rows:1fr  ;
+        grid-template-areas:" footerHome ";
+        background-color: $colorTerciario;
+        text-align: center;
+        grid-area: footer ;
+        font-weight: bold; 
+        a{
+            text-decoration: none;
+            color:map-get($map: $colores, $key:h1 );
+            font-size: bold;
+            
+        }
+    }
+    @media screen and (max-width:600px){
+        .contendorHome .headerHome{
+            display: grid;
+            grid-template-columns:7fr;
+            grid-template-rows:2.5fr  ;
+            grid-template-areas:" headerHome ";   
+        }
+        .contendorHome .seccionCentral{
+            display: grid;
+            grid-template-columns:7fr ;
+            grid-template-rows:3.5fr 3.5fr;
+            grid-template-areas:" divSeccion"
+                                 "sectionRutini";   
+        }
+        
+        .contendorHome .footerHome{
+            display: grid;
+            grid-template-columns:7fr;
+            grid-template-rows:1fr  ;
+            grid-template-areas:" footerHome ";   
+        }
+    
+        .headerHome{
+            background-color:$colorSecundario;
+        }
+        .menu{
+            background-color:map-get($map: $colores, $key:h1 );
+        }
+    }
+    @media screen and (max-width:399px){
+        .sectionRutini{
+            display: none;
+        }
+        .contendorHome .seccionCentral{
+            display: grid;
+            grid-template-columns:7fr ;
+            grid-template-rows:3.5fr;
+            grid-template-areas:" divSeccion";   
+        }
+    
+    }
+
+}
+/*estilos ubicacion*/
+
+body{
+    header{
+        grid-area: headerUbi;
+        background-color: $colorSecundario;
+        .ubicacionPiePagina{
+            background-color: red;
+            @include leter-type;
+        }
+        .absolutImagen{
+            text-align: center;
+        }
+        .ubicacionTitulo{
+            @include leter-type;
+            font-size: 60px;
+            border: 10px solid black;
+        }
+    }
+    main{
+        background-color: rgb(174, 173, 173);
+        font-weight: bold;
+      
+        
+    }
+   
+    @media screen and (max-width:600px){  
+        .bodyUbi{
+            header{
+                background-color:grey
+            }
+        }
+    }
+    @media screen and (max-width:399px){  
+        .bodyUbi{
+            background-color:whitesmoke;
+        }
+    }
+}
+/*estilos productos*/
+body{
+    div{
+        .headerProducto{
+            display: grid;
+            grid-template-columns:7fr;
+            grid-template-rows:7fr  ;
+            grid-template-areas:" headerProducto ";
+            grid-area: headerProducto;
+            @include flex-wrap;
+            background-color:$colorTerciario;
+            .productosPiePagina{
+                background-color: red;
+                font-weight: bold;
+                text-align: center;
+            }
+            .productosTitulo{
+                @include leter-type;
+                font-weight: bold;
+                font-size: 5vw;
+                border: 10px solid black;
+            }
+            .container-fluid{
+                background-color:$colorSecundario;
+                justify-content: space-evenly;
+                border:3px solid black;
+                .navproductos{
+                    @include leter-type;
+                    font-weight: bold;
+                 
+                }
+
+            }
+            .aperitivosProductos{
+                text-align: center;
+            }
+            
+            .imagenAperitivos{
+                animation-name: imagenAperitivos;
+                animation-iteration-count: infinite;
+                animation-duration: 5s;
+            }
+            @keyframes imagenAperitivos{
+                from{
+                    transform: scale(0);
+                }
+                to{
+                    transform: scale(0.7);
+                }  
+            }
+        }
+        .mainProductos {
+            display: grid;
+            grid-template-columns:7fr;
+            grid-template-rows:1fr 1fr 2.5fr;
+            @include flex-wrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            .tablaAlinerar{
+                text-align: center;
+                table-layout: none;
+                font-weight: bold;
+            }
+            .tablaProductos{
+                grid-area: tablaProductos;
+            }
+            .tablaProductos td{
+                font-size: 2.5vw;
+            }
+            .tablaProductos{
+                background-color: goldenrod;
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                table-layout: fixed;
+                margin-bottom: 0px;
+                font-weight: bold;
+            
+            }
+            .fernetProductosTitulo:hover{
+                transform: scale(3);
+                transform: translate(20px, 40px);
+                background-image: linear-gradient(to left, white, right);
+            }
+            .fernetProductosTitulo{
+                background-color:$colorTerciario;
+                font-size: 3vw;
+                @include leter-type;
+                align-items: center;
+                margin-top: 5px;
+            }
+            .contenedorProductosImg{
+                text-align: center;
+                grid-area: contenedorProductosImg;
+            }
+            .contenedorMultimedia{
+                grid-area: contenedorMultimedia;
+                width: 100%;
+            }
+            grid-template-areas:"tablaProductos" 
+                                "fernetProductosTitulo"
+                                "contenedorMultimedia ";                                        
+        }
+        .footerProductos {
+            display: grid;
+            grid-template-columns:7fr ;
+            grid-template-rows:1fr;
+            grid-template-areas:"footerProductos"; 
+            grid-area: footerProductos; 
+            background-color:$colorTerciario;
+        }
+
+    }
+    @media screen and (max-width:600px){  
+        body{
+            background-color: burlywood;
+        }
+       .contenedorMultimedia{
+        display: none;
+       }
+        .contendorProductos .mainProductos {
+            display: grid;
+            grid-template-columns:7fr;
+            grid-template-rows:2.25fr 2.25fr;
+            grid-template-areas:"tablaProductos" 
+                                "fernetProductosTitulo";   
+        }
+    
+    }
+    @media screen and (max-width:399px){  
+        body{
+            background-color: whitesmoke
+        }
+       
+    
+    }
+}
+/*estilos eventos*/
+
+body{
+    .headerEventos{
+        background-color:$colorTerciario;
+        @include flex-colum;
+        .eventosPiePagina{
+            background-color: map-get($map: $colores, $key:h3 );
+            @include leter-type;
+            align-items: center;
+        }
+        .eventosTitulo{
+           @include leter-type;
+            font-size: 60px;
+            border: 10px solid black;
+        }
+        .navEventos{
+            background-color:$colorTerciario;
+            font-weight: bold;
+            border: 10px solid black;
+        }
+    }
+    .conteiner-fluid{
+        background-color:$colorSecundario;
+        padding: 100px;
+    }
+    footer{
+        background-color: $colorTerciario;
+        text-align: center;
+    }
+    @media screen and (max-width:600px){  
+        .bodyEventos{
+            background-color: grey;
+        }
+       
+    
+    }
+    @media screen and (max-width:399px){  
+        .bodyEventos{
+            background-color: whitesmoke
+        }
+       
+    
+    }
+}       
+
+/*estilos contacto*/
+.bodyContacto{
+    display:grid;
+    grid-template-columns: 2fr;
+    grid-template-rows: 0.3fr 1.6fr 0.1fr;
+    grid-template-areas: "headerContacto"
+    "mainContacto"
+    "footerContacto";
+        .headerContacto{
+            grid-area: headerContacto;
+            text-align: center;
+            display: flex;
+            .contactoPiePagina{
+               background-color:map-get($map: $colores, $key: h3);
+            }
+            .contactosTitulo{
+               @include leter-type;
+               font-size: 60px;
+               border: 10px solid black;
+              }
+            .navContacto{
+             justify-content: center;
+             border: 10px solid black;
+             font-weight: bold;
+            }
+        }
+        .mainContacto{
+         grid-area: mainContacto;
+         .tablaColor{
+            background-color:$colorTerciario;
+            text-align: center;
+            border: 3px solid burlywood;
+            text-shadow: 1px black;
+            margin-top: 0px;
+         }
+         .card-group{
+             background-color: $colorSecundario;
+             grid-area: card-group;
+            }
+           }
+        .footerContacto{
+             grid-area: footerContacto;
+             background-color:$colorTerciario;
+             text-align: center;
+           }               
+        }
+        
+        @media screen and (max-width:600px){
+            .bodyContacto{
+                background-color: $colorTerciario;
+            }
+            .card-group{
+                display: none;
+            }
+         }
+         @media screen and (max-width:300px){
+            .bodyContacto{
+                background-color: whitesmoke;
+            }
+            .contactosTitulo{
+                font-size: small;
+                font-weight: bold;
+                color:$colorTerciario;
+            }
+             }
+
+/*estilos carrito compra*/
+body{
+    header{
+        @include flex-colum;
+        .carritoPiePagina{
+            background-color: map-get($map: $colores, $key: h3);
+        }
+        .carritoTitulo{
+           @include leter-type;
+            font-size: 60px;
+            border: 10px solid black;
+        }
+        .navCarrito{
+            border: 10px solid black;
+            font-weight: bold;
+        }
+        .listaCarrito{
+            background-color: black;
+            color: whitesmoke;
+           @include decoration-text;
+            font-size: bold;
+        }
+    }
+    main{
+        .card-body{
+            text-align: center;
+            background-color: grey;
+        }
+    }
+    @media screen and (max-width:600px){  
+        body{
+            background-color: grey;
+        }
+       
+    
+    }
+    @media screen and (max-width:399px){  
+        body{
+            background-color: whitesmoke
+        }
+    }
+}
+ 

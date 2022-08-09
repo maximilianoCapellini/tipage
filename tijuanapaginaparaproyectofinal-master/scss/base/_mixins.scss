@@ -1,0 +1,18 @@
+@mixin flex-colum {
+    display: flex;
+    flex-direction: column;
+    
+}
+@mixin flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+@mixin decoration-text{
+    list-style: none;
+    text-decoration: none;
+}
+@mixin leter-type{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
